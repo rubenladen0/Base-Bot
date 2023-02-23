@@ -1,6 +1,6 @@
 import discord, os
 from discord.ext import commands
-from config import *
+from config import token
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
