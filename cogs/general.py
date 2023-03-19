@@ -17,9 +17,23 @@ class General(commands.Cog):
         
     @app_commands.command(name="help", description="Voir mes commandes")
     async def help(self, i: discord.Interaction):
-        embed = discord.Embed(title="Help", timestamp=datetime.now(), description="Voici mes commandes avec comme préfix `/`: \n\n**Générale :**\n`ping` - Avoir mon ping\n`help` - Avoir ce menu\n\n**Modération :**\n`clear` - Supprimer des messages\n`kick` - Kick un membre\n`ban` - Bannir un membre\n`unban` - Débannir un membre")
+        embed = discord.Embed(title="Help", timestamp=datetime.now(), description="Voici mes commandes avec comme préfix `/`: \n\n**Générale :**\n`ping` - Avoir mon ping\n`help` - Avoir ce menu\n`info` - Information sur le bot\n\n**Modération :**\n`clear` - Supprimer des messages\n`kick` - Kick un membre\n`ban` - Bannir un membre\n`unban` - Débannir un membre")
         await i.response.send_message(embed=embed)
     
-
+    @app_commands.command(name="info", description="Informations sur le bot")
+    async def info(self, i: discord.Interaction):
+        mess = "Langage: Python\nLibrairie: Discord.py\nBot Open Source: [Github](https://github.com/NX-GoldJust/Base-Bot)"
+        embed = discord.Embed(title="Info", description=mess, timestamp=datetime.now())
+        embed.set_thumbnail(url=self.bot.user.avatar.url)
+        await i.response.send_message(embed=embed)
+        
+        
+        
+        
+        
+        
+        
+        
+        
 async def setup(bot):
     await bot.add_cog(General(bot))
