@@ -84,7 +84,11 @@ class Moderation(commands.Cog):
             await new_channel.send(embed=embed, delete_after=10, content=interaction.user.mention)
         
         
-    
+    @app_commands.command(name="off", description="Mettre off le bot")
+    @app_commands.default_permissions(administrator=True)
+    async def off(self, i: discord.Interaction):
+        await i.response.send_message("Le bot est en cours d'arret ...")
+        exit()
 
 async def setup(bot):
     await bot.add_cog(Moderation(bot))
