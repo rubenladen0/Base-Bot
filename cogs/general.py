@@ -15,7 +15,10 @@ class General(commands.Cog):
             
         await i.response.send_message(f"Mon ping est d'environ {str(png)} ms !")
         
-        
+    @app_commands.command(name="help", description="Voir mes commandes")
+    async def help(self, i: discord.Interaction):
+        embed = discord.Embed(title="Help", timestamp=datetime.now(), description="Voici mes commandes avec comme préfix `/`: \n\n**Générale :**\n`ping` - Avoir mon ping\n`help` - Avoir ce menu\n\n**Modération :**\n`clear` - Supprimer des messages\n`kick` - Kick un membre\n`ban` - Bannir un membre\n`unban` - Débannir un membre")
+        await i.response.send_message(embed=embed)
     
 
 async def setup(bot):
